@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import { BrowserRouter, useRoutes } from "react-router-dom";
 import routes from "./routes";
 import "@brainhubeu/react-carousel/lib/style.css";
+import { CartProvider } from "react-use-cart";
 const Routes = () => {
   const element = useRoutes(routes);
   return (
@@ -20,11 +21,13 @@ function App() {
     cache: new InMemoryCache(),
   });
   return (
-    <BrowserRouter>
-      <ApolloProvider client={client}>
-        <Routes />
-      </ApolloProvider>
-    </BrowserRouter>
+    <CartProvider>
+      <BrowserRouter>
+        <ApolloProvider client={client}>
+          <Routes />
+        </ApolloProvider>
+      </BrowserRouter>
+    </CartProvider>
   );
 }
 

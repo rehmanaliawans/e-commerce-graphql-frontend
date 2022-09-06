@@ -1,7 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
   return (
     <nav>
       <div className="nav-wrapper">
@@ -9,21 +15,37 @@ const Navbar = () => {
           Flipkart
         </Link>
         <ul id="nav-mobile" className="right ">
+          {token ? (
+            <li>
+              <i
+                style={{ cursor: "pointer", padding: "0 20px" }}
+                class="material-icons large"
+                onClick={handleLogout}
+              >
+                logout
+              </i>
+            </li>
+          ) : (
+            <>
+              <li>
+                <Link to="/login">Login</Link>
+              </li>
+              <li>
+                <Link to="/signup">Signup</Link>
+              </li>
+            </>
+          )}
           <li>
-            <Link to="/login">Login</Link>
+            <i
+              style={{ cursor: "pointer" }}
+              class="material-icons large"
+              onClick={() => {
+                navigate("/cart");
+              }}
+            >
+              shopping_cart
+            </i>
           </li>
-          <li>
-            <Link to="/signup">Signup</Link>
-          </li>
-          {/* <li>
-            <a href="sass.html">Sass</a>
-          </li>
-          <li>
-            <a href="badges.html">Components</a>
-          </li>
-          <li>
-            <a href="collapsible.html">JavaScript</a>
-          </li> */}
         </ul>
       </div>
     </nav>

@@ -2,6 +2,7 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Product from "./pages/Product";
+import Cart from "./pages/Cart";
 
 const routes = [
   {
@@ -20,6 +21,10 @@ const routes = [
   {
     path: "/product/:id",
     element: <Product />,
+  },
+  {
+    path: "/cart",
+    element: <Cart />,
   },
 ];
 export default routes;
