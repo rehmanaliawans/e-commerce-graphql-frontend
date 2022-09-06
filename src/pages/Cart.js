@@ -1,5 +1,7 @@
+import { Card, CardContent } from "@mui/material";
 import React, { useState } from "react";
 import { useCart } from "react-use-cart";
+import Checkout from "../components/Checkout";
 
 const Cart = () => {
   const [checkout, setCheckout] = useState(false);
@@ -11,8 +13,15 @@ const Cart = () => {
   if (checkout) {
     return (
       <div className="container">
-        <h4>Payment method</h4>
-        <button onClick={() => setCheckout(false)}>Cancel</button>
+        <Card>
+          <CardContent>
+            <h4>Payment method</h4>
+            <Checkout /> <br />
+            <button className="btn red" onClick={() => setCheckout(false)}>
+              Cancel
+            </button>
+          </CardContent>
+        </Card>
       </div>
     );
   }

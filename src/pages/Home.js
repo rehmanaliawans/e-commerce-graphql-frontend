@@ -17,6 +17,7 @@ const Home = () => {
         {data?.products?.data?.map(({ id, attributes }) => {
           return (
             <MuiCard
+              key={id}
               id={id}
               description={attributes.description}
               name={attributes.name}

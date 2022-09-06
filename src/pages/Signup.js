@@ -6,7 +6,7 @@ import { SIGNUP_USER } from "../gqlOperations/mutation";
 
 const Signup = () => {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState();
+  const [formData, setFormData] = useState({});
   const [SignupUser, { loading, error, data }] = useMutation(SIGNUP_USER);
   const handleChange = (e) => {
     setFormData({

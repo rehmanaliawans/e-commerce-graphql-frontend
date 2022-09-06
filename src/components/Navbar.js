@@ -19,7 +19,7 @@ const Navbar = () => {
             <li>
               <i
                 style={{ cursor: "pointer", padding: "0 20px" }}
-                class="material-icons large"
+                className="material-icons large"
                 onClick={handleLogout}
               >
                 logout
@@ -38,7 +38,7 @@ const Navbar = () => {
           <li>
             <i
               style={{ cursor: "pointer" }}
-              class="material-icons large"
+              className="material-icons large"
               onClick={() => {
                 navigate("/cart");
               }}

@@ -29,13 +29,23 @@ const Product = () => {
       img: BACKEND_URL + images.data[0].attributes.url,
     });
   };
+  if (loading)
+    return (
+      <Backdrop
+        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={true}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
+    );
   return (
     <div>
       <div className="container">
         <Carousel plugins={["arrows"]}>
-          {images?.data?.map(({ attributes }) => {
+          {images?.data.map(({ attributes }, index) => {
             return (
               <img
+                key={index}
                 style={{ height: "50vh" }}
                 src={BACKEND_URL + attributes.url}
                 alt="as"
@@ -52,12 +62,6 @@ const Product = () => {
           </button>
         </div>
       </div>
-      <Backdrop
-        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        open={loading}
-      >
-        <CircularProgress color="inherit" />
-      </Backdrop>
     </div>
   );
 };
