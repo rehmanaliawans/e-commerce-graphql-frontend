@@ -6,12 +6,14 @@ import { BrowserRouter, useRoutes } from "react-router-dom";
 import routes from "./routes";
 import "@brainhubeu/react-carousel/lib/style.css";
 import { CartProvider } from "react-use-cart";
+import Category from "./components/Category";
 const Routes = () => {
   const element = useRoutes(routes);
   return (
     <>
       <Navbar />
       {element}
+      <Category />
     </>
   );
 };

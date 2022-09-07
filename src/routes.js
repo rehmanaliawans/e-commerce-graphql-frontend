@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
+import ProductByCategory from "./pages/ProductByCategory";
 
 const routes = [
   {
@@ -25,6 +26,10 @@ const routes = [
   {
     path: "/cart",
     element: <Cart />,
+  },
+  {
+    path: "/category/:id",
+    element: <ProductByCategory />,
   },
 ];
 export default routes;
